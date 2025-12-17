@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelle & Victor | October 28, 2027</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --royal-blue: #13274F;
+            --royal-blue-light: #1E3A8A;
+            --royal-blue-dark: #0A1A3A;
+            --cream: #F9F6F0;
+            --gold: #D4AF37;
+            --gold-light: #E8D9A0;
+            --rustic-brown: #8B7355;
+            --shadow: rgba(19, 39, 79, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--royal-blue);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        /* Background texture */
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230a1a3a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        /* Invitation Card Container */
+        .invitation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--royal-blue-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .invitation-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* The Invitation Card */
+        .invitation-card {
+            width: 400px;
+            height: 550px;
+            background-color: var(--cream);
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 
+                        0 0 100px rgba(212, 175, 55, 0.1) inset,
+                        0 0 30px rgba(212, 175, 55, 0.05);
+            cursor: pointer;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .invitation-card {
+                width: 320px;
+                height: 480px;
+            }
+        }
+
+        .invitation-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 
+                        0 0 120px rgba(212, 175, 55, 0.15) inset,
+                        0 0 40px rgba(212, 175, 55, 0.08);
+        }
+
+        .invitation-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 100Q40 10 100 10T190 100Q160 190 100 190T10 100' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-seal {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0) 70%);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .card-seal:before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+        }
+
+        .initials {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: var(--royal-blue);
+            line-height: 1;
+            position: relative;
+        }
+
+        .initials:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .invitation-instruction {
+            position: absolute;
+            bottom: 2rem;
+            width: 100%;
+            text-align: center;
+            color: var(--rustic-brown);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Main Website Content (initially hidden) */
+        .website-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .website-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header/Navigation */
+        .navbar {
+            background-color: rgba(249, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(19, 39, 79, 0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--royal-blue);
+        }
+
+        .nav-link {
+            color: var(--royal-blue) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            padding: 0.5rem 0 !important;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(19, 39, 79, 0.9), rgba(19, 39, 79, 0.7)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center;
+            background-size: cover;
+            color: var(--cream);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-date {
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+            color: var(--gold-light);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .hero-date:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 8rem 0;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 0;
+        }
+
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background-color: var(--cream);
+        }
+
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .welcome-text {
+            font-size: 1.2rem;
+            color: var(--royal-blue-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Details Section */
+        .details-section {
+            background-color: var(--royal-blue);
+            color: var(--cream);
+        }
+
+        .details-section .section-title:after {
+            background-color: var(--gold);
+        }
+
+        .details-card {
+            background-color: rgba(249, 246, 240, 0.1);
+            border-radius: 8px;
+            padding: 2.5rem;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .details-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .details-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background-color: var(--cream);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: var(--gold);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+            padding-right: 4rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+            padding-left: 4rem;
+            text-align: left;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--royal-blue);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            top: 10px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-event {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--royal-blue);
+        }
+
+        /* Map Section */
+        .map-section {
+            background-color: var(--royal-blue);
+            color: var(--cream);
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(rgba(19, 39, 79, 0.9), rgba(19, 39, 79, 0.7)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 1.2rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--cream);
+        }
+
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(19, 39, 79, 0.8) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: var(--cream);
+            font-size: 1.1rem;
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background-color: var(--cream);
+        }
+
+        .rsvp-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(19, 39, 79, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-control, .form-select {
+            border-radius: 4px;
+            border: 1px solid rgba(19, 39, 79, 0.2);
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--royal-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--royal-blue);
+            border-color: var(--royal-blue);
+            padding: 0.8rem 2.5rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--royal-blue-light);
+            border-color: var(--royal-blue-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(19, 39, 79, 0.2);
+        }
+
+        .plus-one-container {
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            max-height: 0;
+        }
+
+        .plus-one-container.visible {
+            max-height: 200px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--royal-blue-dark);
+            color: var(--cream);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-text {
+            color: rgba(249, 246, 240, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            color: var(--royal-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: rgba(249, 246, 240, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(19, 39, 79, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .confirmation-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .confirmation-content {
+            background-color: var(--cream);
+            border-radius: 8px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px);
+            transition: transform 0.5s ease;
+        }
+
+        .confirmation-modal.visible .confirmation-content {
+            transform: translateY(0);
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-padding {
+                padding: 6rem 0;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                margin-left: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 20px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .rsvp-form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Invitation Card (Initial View) -->
+    <div class="invitation-container" id="invitationContainer">
+        <div class="invitation-card" id="invitationCard">
+            <div class="card-front">
+                <div class="card-seal">
+                    <h1 class="initials">M & V</h1>
+                </div>
+                <h3 class="mt-4" style="font-weight: 300; letter-spacing: 0.1em;">WEDDING INVITATION</h3>
+                <p class="mt-3" style="color: var(--rustic-brown); max-width: 300px; font-size: 1.1rem;">You are cordially invited to celebrate our union on October 28, 2027</p>
+                <div class="invitation-instruction">
+                    <p>Click to open invitation</p>
+                    <i class="fas fa-chevron-down mt-2"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Hidden Initially) -->
+    <div class="website-content" id="websiteContent">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#home">Michelle & Victor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#welcome">Our Story</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#details">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#schedule">Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rsvp">RSVP</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Michelle & Victor</h1>
+                    <p class="hero-subtitle">Invite you to celebrate their wedding</p>
+                    <div class="hero-date">October 28, 2027 | Binmaley, Pangasinan</div>
+                    <a href="#rsvp" class="btn btn-outline-light px-5 py-3">RSVP Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Welcome / Couple Message -->
+        <section id="welcome" class="section-padding welcome-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center">Our Story</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h3 class="couple-names">Michelle & Victor</h3>
+                        <p class="welcome-text">
+                            Our story began eight years ago at a mutual friend's gathering in Manila. Michelle, with her radiant smile, caught Victor's eye from across the room. What started as a conversation about their shared love for traditional Filipino art grew into late-night talks, weekend adventures exploring Pangasinan's hidden gems, and eventually, a deep, unwavering love.
+                        </p>
+                        <p class="welcome-text mt-4">
+                            Victor proposed during a sunset walk along Binmaley's beach, the same place where they'd shared their first meaningful conversation about building a future together. It was a moment of pure joy, surrounded by the beauty of their hometown and the promise of forever.
+                        </p>
+                        <p class="welcome-text mt-4" style="font-style: italic; color: var(--rustic-brown);">
+                            With love and gratitude,<br>
+                            Michelle & Victor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Details -->
+        <section id="details" class="section-padding details-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center text-white">Wedding Details</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <h3 class="details-title">Date & Time</h3>
+                            <p>October 28, 2027</p>
+                            <p>Thursday, 3:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-church"></i>
+                            </div>
+                            <h3 class="details-title">Ceremony</h3>
+                            <p>Our Lady of Purification Parish</p>
+                            <p>Binmaley, Pangasinan</p>
+                            <p>3:00 PM - 4:30 PM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-glass-cheers"></i>
+                            </div>
+                            <h3 class="details-title">Reception</h3>
+                            <p>Villa Estrella Gardens</p>
+                            <p>Binmaley, Pangasinan</p>
+                            <p>5:00 PM onwards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section id="schedule" class="section-padding schedule-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center">Wedding Day Schedule</h2>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-event">Guest Arrival & Seating</div>
+                        <p>Please arrive at the church and be seated by 1:45 PM</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-event">Ceremony Begins</div>
+                        <p>Wedding mass at Our Lady of Purification Parish</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">4:30 PM</div>
+                        <div class="timeline-event">Photo Session</div>
+                        <p>Family and group photos at the church</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">5:00 PM</div>
+                        <div class="timeline-event">Cocktail Hour</div>
+                        <p>Drinks and hors d'oeuvres at Villa Estrella Gardens</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">6:00 PM</div>
+                        <div class="timeline-event">Reception & Dinner</div>
+                        <p>Formal program and five-course dinner</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-time">9:00 PM</div>
+                        <div class="timeline-event">Dancing & Celebration</div>
+                        <p>Music, dancing, and celebration until 11:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section-padding gallery-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center">Our Journey Together</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Engagement Photo" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-caption">Our Engagement Day</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1520854221256-17463ccb8b9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Beach Day" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-caption">Sunset at Binmaley Beach</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2054&q=80" alt="Celebration" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-caption">Family Celebration</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Map -->
+        <section id="map" class="section-padding map-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center text-white">Venue Locations</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h3 class="text-center mb-3" style="color: var(--gold-light);">Ceremony</h3>
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-church fa-3x mb-3" style="color: var(--gold);"></i>
+                                    <h4>Our Lady of Purification Parish</h4>
+                                    <p>Binmaley, Pangasinan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h3 class="text-center mb-3" style="color: var(--gold-light);">Reception</h3>
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-glass-cheers fa-3x mb-3" style="color: var(--gold);"></i>
+                                    <h4>Villa Estrella Gardens</h4>
+                                    <p>Binmaley, Pangasinan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code -->
+        <section class="section-padding" style="background-color: var(--cream);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="section-title center mb-4">Dress Code</h2>
+                        <p class="mb-4" style="font-size: 1.2rem; color: var(--royal-blue-light);">Formal / Semi-Formal Attire</p>
+                        <p class="mb-4">We request our guests to dress in elegant formal or semi-formal attire to match the celebration's tone. Traditional Filipino attire is warmly encouraged!</p>
+                        <div class="row mt-5">
+                            <div class="col-md-6 mb-4">
+                                <div class="p-4" style="border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px;">
+                                    <h4 style="color: var(--royal-blue);">For Gentlemen</h4>
+                                    <p class="mt-3">Barong Tagalog, Suit, or Coat and Tie<br>Preferred colors: Navy, Gray, Cream, or Earth Tones</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="p-4" style="border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px;">
+                                    <h4 style="color: var(--royal-blue);">For Ladies</h4>
+                                    <p class="mt-3">Long Gowns, Cocktail Dresses, or Elegant Filipiniana<br>Royal blue, gold, cream, or pastel colors are encouraged</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" class="section-padding rsvp-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title center">RSVP</h2>
+                        <p class="mb-4" style="font-size: 1.2rem; color: var(--royal-blue-light);">Kindly respond by September 15, 2027</p>
+                    </div>
+                </div>
+                <div class="rsvp-form-container">
+                    <form id="rsvpForm">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="attendance" class="form-label">Will you be attending? *</label>
+                            <select class="form-select" id="attendance" required>
+                                <option value="" selected disabled>Please select</option>
+                                <option value="yes">Yes, I will attend</option>
+                                <option value="no">No, I cannot attend</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="plusOne">
+                                <label class="form-check-label" for="plusOne">
+                                    I will be bringing a plus one
+                                </label>
+                            </div>
+                        </div>
+                        <div class="plus-one-container" id="plusOneContainer">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="plusOneFirstName" class="form-label">Plus One's First Name</label>
+                                    <input type="text" class="form-control" id="plusOneFirstName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="plusOneLastName" class="form-label">Plus One's Last Name</label>
+                                    <input type="text" class="form-control" id="plusOneLastName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message for Michelle & Victor (Optional)</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Share your well wishes or any dietary restrictions..."></textarea>
+                        </div>
+                        <div class="text-center mt-5">
+                            <button type="submit" class="btn btn-primary px-5 py-3">Submit RSVP</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h3 class="footer-title" style="font-size: 2rem;">Michelle & Victor</h3>
+                        <p class="footer-text">Thank you for being part of our special day. We look forward to celebrating with you!</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4" style="color: var(--gold-light);">Contact Information</h4>
+                        <ul class="list-unstyled footer-text">
+                            <li class="mb-2"><i class="fas fa-user me-2"></i> Michelle & Victor</li>
+                            <li class="mb-2"><i class="fas fa-envelope me-2"></i> rsvp@michelleandvictor2027.com</li>
+                            <li class="mb-2"><i class="fas fa-phone me-2"></i> +63 912 345 6789</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="mb-4" style="color: var(--gold-light);">Wedding Details</h4>
+                        <ul class="list-unstyled footer-text">
+                            <li class="mb-2"><i class="far fa-calendar-alt me-2"></i> October 28, 2027</li>
+                            <li class="mb-2"><i class="fas fa-church me-2"></i> Our Lady of Purification Parish</li>
+                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Binmaley, Pangasinan</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright">
+                            <p>Michelle & Victor Wedding | October 28, 2027 | Binmaley, Pangasinan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="mb-3">Thank You!</h3>
+            <p class="mb-4">Your RSVP has been received. We look forward to celebrating with you on our special day!</p>
+            <button class="btn btn-primary" id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Invitation Card Interaction
+        const invitationCard = document.getElementById('invitationCard');
+        const invitationContainer = document.getElementById('invitationContainer');
+        const websiteContent = document.getElementById('websiteContent');
+
+        invitationCard.addEventListener('click', function() {
+            // Add animation class to card
+            invitationCard.style.transform = 'scale(1.5) rotate(5deg)';
+            invitationCard.style.opacity = '0';
+            
+            // Hide invitation container after animation
+            setTimeout(function() {
+                invitationContainer.classList.add('hidden');
+                
+                // Show main website content
+                setTimeout(function() {
+                    websiteContent.classList.add('visible');
+                }, 300);
+            }, 800);
+        });
+
+        // Plus One Dynamic Field
+        const plusOneCheckbox = document.getElementById('plusOne');
+        const plusOneContainer = document.getElementById('plusOneContainer');
+
+        plusOneCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                plusOneContainer.classList.add('visible');
+                // Smoothly show the container
+                setTimeout(function() {
+                    plusOneContainer.style.maxHeight = '200px';
+                }, 10);
+            } else {
+                plusOneContainer.style.maxHeight = '0';
+                // Remove visible class after transition
+                setTimeout(function() {
+                    plusOneContainer.classList.remove('visible');
+                }, 500);
+            }
+        });
+
+        // RSVP Form Submission
+        const rsvpForm = document.getElementById('rsvpForm');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show the confirmation modal
+            confirmationModal.classList.add('visible');
+            
+            // Reset the form
+            rsvpForm.reset();
+            plusOneContainer.classList.remove('visible');
+            plusOneContainer.style.maxHeight = '0';
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            confirmationModal.classList.remove('visible');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Skip if it's a dropdown toggle
+                if (this.getAttribute('data-bs-toggle') === 'collapse') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile navbar if open
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+                        navbarToggler.click();
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+            }
+        });
+
+        // Form field animations
+        const formInputs = document.querySelectorAll('.form-control, .form-select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+
+        // Gallery image hover effect enhancement
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.transition = 'transform 0.4s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
