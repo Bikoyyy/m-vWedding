@@ -14,14 +14,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --royal-blue: #4169E1;
-            --royal-blue-light: #6495ED;
-            --royal-blue-dark: #1E3A8A;
-            --cream: #F9F6F0;
-            --gold: #D4AF37;
-            --gold-light: #E8D9A0;
-            --rustic-brown: #8B7355;
-            --shadow: rgba(30, 58, 138, 0.2);
+            --primary-blue: #2A4A7A;
+            --secondary-blue: #4169E1;
+            --accent-blue: #6495ED;
+            --primary-gold: #C5A028;
+            --secondary-gold: #D4AF37;
+            --accent-gold: #E8D9A0;
+            --cream-bg: #F9F6F0;
+            --light-cream: #FFFCF7;
+            --dark-blue: #1A3057;
+            --text-dark: #2C3E50;
+            --text-light: #6D7B8D;
+            --shadow: rgba(42, 74, 122, 0.15);
+            --success: #4CAF50;
+            --error: #F44336;
         }
 
         * {
@@ -37,8 +43,8 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--royal-blue);
-            background-color: var(--cream);
+            color: var(--text-dark);
+            background-color: var(--cream-bg);
             overflow-x: hidden;
             line-height: 1.6;
             font-size: 16px;
@@ -52,7 +58,7 @@
             letter-spacing: 0.03em;
         }
 
-        /* Enhanced Background Texture */
+        /* Enhanced Background with Subtle Pattern */
         body:before {
             content: '';
             position: fixed;
@@ -61,21 +67,22 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(65, 105, 225, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230a1a3a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.6;
+                radial-gradient(circle at 15% 25%, rgba(42, 74, 122, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 85% 75%, rgba(197, 160, 40, 0.03) 0%, transparent 25%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232A4A7A' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.7;
             z-index: -1;
+            pointer-events: none;
         }
 
-        /* Enhanced Invitation Card */
+        /* Invitation Card - Improved Color Harmony */
         .invitation-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--royal-blue-dark) 0%, #0a1a3a 100%);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -95,18 +102,17 @@
             width: 100%;
             max-width: 420px;
             height: 580px;
-            background-color: var(--cream);
-            border-radius: 15px;
+            background: linear-gradient(145deg, var(--light-cream) 0%, var(--cream-bg) 100%);
+            border-radius: 20px;
             position: relative;
             box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                0 0 100px rgba(212, 175, 55, 0.15) inset,
-                0 0 30px rgba(212, 175, 55, 0.1);
+                0 30px 60px rgba(42, 74, 122, 0.4),
+                0 0 100px rgba(197, 160, 40, 0.15) inset,
+                0 0 30px rgba(197, 160, 40, 0.1);
             cursor: pointer;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(197, 160, 40, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -119,51 +125,25 @@
         .invitation-card:hover {
             transform: translateY(-15px) scale(1.03);
             box-shadow: 
-                0 40px 80px rgba(0, 0, 0, 0.5),
-                0 0 120px rgba(212, 175, 55, 0.2) inset,
-                0 0 40px rgba(212, 175, 55, 0.12);
-        }
-
-        .invitation-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(65, 105, 225, 0.1) 0%, transparent 50%);
-            opacity: 0.8;
-        }
-
-        .card-front {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2.5rem;
-            text-align: center;
-            touch-action: manipulation;
+                0 40px 80px rgba(42, 74, 122, 0.5),
+                0 0 120px rgba(197, 160, 40, 0.2) inset,
+                0 0 40px rgba(197, 160, 40, 0.12);
         }
 
         .card-seal {
             width: 140px;
             height: 140px;
-            border: 3px solid var(--gold);
+            border: 3px solid var(--primary-gold);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 2.5rem;
             position: relative;
-            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0) 70%);
+            background: radial-gradient(circle, rgba(197, 160, 40, 0.1) 0%, rgba(197, 160, 40, 0) 70%);
             box-shadow: 
-                0 0 40px rgba(212, 175, 55, 0.3),
-                inset 0 0 20px rgba(212, 175, 55, 0.1);
+                0 0 40px rgba(197, 160, 40, 0.3),
+                inset 0 0 20px rgba(197, 160, 40, 0.1);
             animation: float 6s ease-in-out infinite;
         }
 
@@ -175,40 +155,23 @@
         .initials {
             font-family: 'Great Vibes', cursive;
             font-size: 4.2rem;
-            color: var(--royal-blue);
-            line-height: 1;
-            position: relative;
-            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .invitation-instruction {
-            position: absolute;
-            bottom: 2rem;
-            width: 100%;
-            text-align: center;
-            color: var(--rustic-brown);
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            opacity: 0.8;
-            animation: pulse 2s infinite;
-            padding: 0 1rem;
-            touch-action: manipulation;
-        }
-
-        /* Enhanced Hero Section */
+        /* Hero Section - Improved Color Scheme */
         .hero-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
             background: 
-                linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(19, 39, 79, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center;
+                linear-gradient(135deg, rgba(26, 48, 87, 0.9) 0%, rgba(42, 74, 122, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
-            color: var(--cream);
+            color: var(--light-cream);
             position: relative;
             padding: 100px 0 60px;
             overflow: hidden;
@@ -221,7 +184,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: 
+                linear-gradient(45deg, transparent 65%, rgba(197, 160, 40, 0.05) 65%, rgba(197, 160, 40, 0.05) 70%, transparent 70%),
+                linear-gradient(-45deg, transparent 65%, rgba(197, 160, 40, 0.05) 65%, rgba(197, 160, 40, 0.05) 70%, transparent 70%);
+            background-size: 60px 60px;
             opacity: 0.3;
         }
 
@@ -230,7 +196,8 @@
             margin-bottom: 1.2rem;
             font-weight: 400;
             line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--light-cream);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s ease-out;
         }
 
@@ -238,7 +205,8 @@
             font-size: 1.6rem;
             margin-bottom: 2rem;
             font-weight: 300;
-            opacity: 0.9;
+            color: var(--accent-gold);
+            opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -246,7 +214,7 @@
             font-size: 1.4rem;
             letter-spacing: 0.1em;
             margin-bottom: 2.5rem;
-            color: var(--gold-light);
+            color: var(--secondary-gold);
             position: relative;
             display: inline-block;
             padding-bottom: 1rem;
@@ -258,64 +226,68 @@
             position: absolute;
             width: 120px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            background: linear-gradient(90deg, transparent, var(--secondary-gold), transparent);
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        /* Enhanced Countdown Timer */
+        /* Countdown Timer - Color Matched */
         .countdown-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
             border-radius: 15px;
             padding: 1.5rem;
             margin: 2rem auto;
             max-width: 600px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(197, 160, 40, 0.25);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .countdown-item {
-            text-align: center;
-            padding: 0.5rem;
         }
 
         .countdown-value {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             font-weight: 600;
-            color: var(--gold-light);
+            color: var(--secondary-gold);
             line-height: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .countdown-label {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(232, 217, 160, 0.9);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-top: 0.5rem;
         }
 
-        /* Enhanced Navigation */
+        /* Navigation - Improved Color Scheme */
         .navbar {
-            background-color: rgba(249, 246, 240, 0.98);
+            background: linear-gradient(135deg, rgba(249, 246, 240, 0.98) 0%, rgba(255, 252, 247, 0.95) 100%);
             backdrop-filter: blur(15px);
             padding: 1rem 0;
             transition: all 0.4s ease;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 5px 20px rgba(19, 39, 79, 0.1);
+            border-bottom: 2px solid rgba(197, 160, 40, 0.15);
+            box-shadow: 0 5px 25px rgba(42, 74, 122, 0.08);
+        }
+
+        .navbar.scrolled {
+            background: rgba(249, 246, 240, 0.98);
+            box-shadow: 0 10px 30px rgba(42, 74, 122, 0.15);
         }
 
         .navbar-brand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.9rem;
             font-weight: 600;
-            color: var(--royal-blue);
+            color: var(--primary-blue);
             padding: 0.5rem 0;
             position: relative;
             display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .navbar-brand:after {
@@ -323,7 +295,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: var(--gold);
+            background: linear-gradient(90deg, var(--primary-gold), var(--secondary-gold));
             bottom: 0;
             left: 0;
             transition: width 0.3s ease;
@@ -333,7 +305,38 @@
             width: 100%;
         }
 
-        /* Enhanced Section Styling */
+        .nav-link {
+            color: var(--primary-blue) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-gold) !important;
+            background: rgba(197, 160, 40, 0.08);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-gold);
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 70%;
+        }
+
+        /* Section Styling */
         .section-padding {
             padding: 6rem 0;
         }
@@ -343,10 +346,11 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-blue);
+        }
+
+        .section-title.center {
+            text-align: center;
         }
 
         .section-title:after {
@@ -354,7 +358,7 @@
             position: absolute;
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            background: linear-gradient(90deg, var(--primary-gold), var(--secondary-gold));
             bottom: -15px;
             left: 0;
             border-radius: 2px;
@@ -365,17 +369,17 @@
             transform: translateX(-50%);
         }
 
-        /* Enhanced Details Cards */
+        /* Details Cards - Improved Colors */
         .details-card {
-            background: linear-gradient(145deg, rgba(249, 246, 240, 0.95), rgba(255, 255, 255, 0.9));
+            background: linear-gradient(145deg, var(--light-cream), var(--cream-bg));
             border-radius: 15px;
             padding: 2.5rem;
             height: 100%;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(197, 160, 40, 0.15);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             margin-bottom: 1.5rem;
             box-shadow: 
-                0 10px 20px rgba(19, 39, 79, 0.1),
+                0 10px 20px rgba(42, 74, 122, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
@@ -387,22 +391,34 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--royal-blue), var(--gold));
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
         }
 
         .details-card:hover {
             transform: translateY(-10px);
+            border-color: rgba(197, 160, 40, 0.3);
             box-shadow: 
-                0 20px 40px rgba(19, 39, 79, 0.2),
+                0 20px 40px rgba(42, 74, 122, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
-        /* Enhanced Timeline */
+        .details-title {
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .details-icon {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline - Improved Colors */
         .timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
+            padding: 2rem 0;
         }
 
         .timeline:before {
@@ -410,31 +426,72 @@
             position: absolute;
             width: 3px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+            background: linear-gradient(to bottom, var(--primary-gold), var(--secondary-gold));
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(197, 160, 40, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+            padding: 1.5rem;
+            background: var(--light-cream);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(42, 74, 122, 0.1);
+            border: 1px solid rgba(197, 160, 40, 0.15);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
         }
 
         .timeline-dot {
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: var(--cream);
-            border: 4px solid var(--gold);
+            background-color: var(--light-cream);
+            border: 4px solid var(--primary-gold);
             border-radius: 50%;
-            top: 8px;
+            top: 25px;
             z-index: 2;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 15px rgba(197, 160, 40, 0.5);
             transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -45px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -45px;
         }
 
         .timeline-item:hover .timeline-dot {
             transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            box-shadow: 0 0 20px rgba(197, 160, 40, 0.8);
         }
 
-        /* Enhanced Gallery */
+        .timeline-time {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event {
+            color: var(--primary-blue);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery - Improved Colors */
         .gallery-item {
             height: 300px;
             overflow: hidden;
@@ -442,16 +499,15 @@
             position: relative;
             margin-bottom: 1.5rem;
             cursor: pointer;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            touch-action: manipulation;
-            box-shadow: 0 10px 20px rgba(19, 39, 79, 0.15);
+            border: 2px solid rgba(197, 160, 40, 0.2);
+            box-shadow: 0 10px 20px rgba(42, 74, 122, 0.1);
             transition: all 0.4s ease;
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(19, 39, 79, 0.25);
-            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(42, 74, 122, 0.2);
+            border-color: rgba(197, 160, 40, 0.4);
         }
 
         .gallery-img {
@@ -465,17 +521,39 @@
             transform: scale(1.15);
         }
 
-        /* Enhanced RSVP Form */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 48, 87, 0.9), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: var(--light-cream);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-caption {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+
+        /* RSVP Form - Improved Colors */
         .rsvp-form-container {
             max-width: 750px;
             margin: 0 auto;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(249, 246, 240, 0.95));
-            border-radius: 15px;
+            background: linear-gradient(145deg, var(--light-cream), var(--cream-bg));
+            border-radius: 20px;
             padding: 3rem;
             box-shadow: 
-                0 20px 50px rgba(19, 39, 79, 0.15),
+                0 20px 50px rgba(42, 74, 122, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(197, 160, 40, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -487,12 +565,12 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--royal-blue), var(--gold));
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
         }
 
-        /* Enhanced Buttons */
+        /* Buttons - Improved Color Scheme */
         .btn-primary {
-            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             border: none;
             padding: 1rem 3rem;
             font-weight: 500;
@@ -502,7 +580,7 @@
             font-size: 1.1rem;
             width: 100%;
             max-width: 300px;
-            box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 10px 20px rgba(42, 74, 122, 0.25);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -515,24 +593,24 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--royal-blue-light) 0%, var(--royal-blue) 100%);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
             transition: all 0.4s ease;
             z-index: -1;
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(65, 105, 225, 0.4);
+            box-shadow: 0 15px 30px rgba(42, 74, 122, 0.35);
         }
 
         .btn-primary:hover:before {
             left: 0;
         }
 
-        /* Enhanced Footer */
+        /* Footer - Improved Color Scheme */
         .footer {
-            background: linear-gradient(135deg, var(--royal-blue-dark) 0%, #0a1a3a 100%);
-            color: var(--cream);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--light-cream);
             padding: 5rem 0 2rem;
             position: relative;
             overflow: hidden;
@@ -545,29 +623,180 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--royal-blue));
+            background: linear-gradient(90deg, var(--primary-gold), var(--secondary-blue));
+        }
+
+        .footer-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .social-link {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(197, 160, 40, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gold-light);
+            color: var(--accent-gold);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.2rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(197, 160, 40, 0.3);
+            margin-right: 1rem;
         }
 
         .social-link:hover {
-            background: var(--gold);
-            color: var(--royal-blue);
+            background: var(--primary-gold);
+            color: var(--dark-blue);
             transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(197, 160, 40, 0.3);
+        }
+
+        /* Form Elements - Improved */
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 2px solid rgba(42, 74, 122, 0.2);
+            padding: 1rem 1.2rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            height: auto;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 0.25rem rgba(197, 160, 40, 0.25);
+            background: white;
+        }
+
+        .form-label {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 48, 87, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .confirmation-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .confirmation-content {
+            background: linear-gradient(145deg, var(--light-cream), var(--cream-bg));
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(197, 160, 40, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(-30px);
+            transition: transform 0.3s ease;
+        }
+
+        .confirmation-modal.visible .confirmation-content {
+            transform: translateY(0);
+        }
+
+        .confirmation-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
+        }
+
+        .confirmation-icon {
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Save the Date Ribbon */
+        .save-date {
+            position: fixed;
+            top: 100px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 0.5rem 2.5rem;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            box-shadow: 0 5px 15px rgba(26, 48, 87, 0.3);
+            z-index: 1000;
+            border: 1px solid rgba(197, 160, 40, 0.3);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(26, 48, 87, 0.3);
+            border: 2px solid var(--primary-gold);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-player:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(26, 48, 87, 0.4);
+        }
+
+        .music-player.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 40, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(197, 160, 40, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 40, 0); }
         }
 
         /* Animations */
@@ -579,15 +808,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
             }
         }
 
@@ -608,106 +828,17 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--cream);
+            background: var(--cream-bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-light));
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             border-radius: 5px;
-            border: 2px solid var(--cream);
+            border: 2px solid var(--cream-bg);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--royal-blue-light), var(--royal-blue));
-        }
-
-        /* Enhanced Form Elements */
-        .form-control, .form-select {
-            border-radius: 8px;
-            border: 2px solid rgba(19, 39, 79, 0.2);
-            padding: 1rem 1.2rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            height: auto;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
-            background: white;
-        }
-
-        /* Enhanced Modal */
-        .confirmation-content {
-            background: linear-gradient(145deg, rgba(249, 246, 240, 0.95), rgba(255, 255, 255, 0.95));
-            border-radius: 15px;
-            padding: 3rem;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .confirmation-content:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--royal-blue), var(--gold));
-        }
-
-        /* Save the Date Ribbon */
-        .save-date {
-            position: fixed;
-            top: 100px;
-            right: -35px;
-            background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-light));
-            color: white;
-            padding: 0.5rem 2.5rem;
-            transform: rotate(45deg);
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            box-shadow: 0 5px 15px rgba(19, 39, 79, 0.3);
-            z-index: 1000;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        /* Music Player */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(19, 39, 79, 0.3);
-            border: 2px solid var(--gold);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .music-player:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 40px rgba(19, 39, 79, 0.4);
-        }
-
-        .music-player.playing {
-            animation: pulse 2s infinite;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-gold));
         }
 
         /* Responsive Design */
@@ -723,7 +854,15 @@
             .section-title { font-size: 2.2rem; }
             .section-padding { padding: 4rem 0; }
             .gallery-item { height: 250px; }
-            .timeline:before { left: 25px; }
+            .timeline:before { left: 30px; }
+            .timeline-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+            .timeline-dot {
+                left: -45px !important;
+                right: auto !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -739,7 +878,7 @@
 
         /* Accessibility Improvements */
         .focus-visible {
-            outline: 3px solid var(--gold);
+            outline: 3px solid var(--primary-gold);
             outline-offset: 3px;
         }
 
@@ -767,19 +906,19 @@
                 <div class="card-seal">
                     <h1 class="initials">M & V</h1>
                 </div>
-                <h3 class="mt-4" style="font-weight: 300; letter-spacing: 0.1em;">WEDDING INVITATION</h3>
-                <p class="mt-3" style="color: var(--rustic-brown); max-width: 300px; font-size: 1.1rem;">You are cordially invited to celebrate our union</p>
-                <p style="color: var(--royal-blue); font-weight: 600; margin-top: 1rem;">October 28, 2027</p>
+                <h3 class="mt-4" style="font-weight: 300; letter-spacing: 0.1em; color: var(--primary-blue);">WEDDING INVITATION</h3>
+                <p class="mt-3" style="color: var(--text-light); max-width: 300px; font-size: 1.1rem;">You are cordially invited to celebrate our union</p>
+                <p style="color: var(--primary-blue); font-weight: 600; margin-top: 1rem;">October 28, 2027</p>
                 <div class="invitation-instruction">
-                    <p>Tap to open invitation</p>
-                    <i class="fas fa-chevron-down mt-2"></i>
+                    <p style="color: var(--text-light);">Tap to open invitation</p>
+                    <i class="fas fa-chevron-down mt-2" style="color: var(--primary-gold);"></i>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Main Website Content -->
-    <div class="website-content" id="websiteContent">
+    <div class="website-content" id="websiteContent" style="opacity: 0; transform: translateY(20px); transition: all 1s ease;">
         <!-- Save the Date Ribbon -->
         <div class="save-date">SAVE THE DATE</div>
         
@@ -801,7 +940,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
+                            <a class="nav-link active" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#welcome">Our Story</a>
@@ -861,7 +1000,7 @@
                         </div>
                     </div>
                     
-                    <a href="#rsvp" class="btn btn-primary hero-btn mt-4 animate-on-scroll">RSVP Now</a>
+                    <a href="#rsvp" class="btn btn-primary hero-btn mt-4 animate-on-scroll" style="animation-delay: 0.8s;">RSVP Now</a>
                 </div>
             </div>
         </section>
@@ -874,18 +1013,18 @@
                         <h2 class="section-title center mb-5 animate-on-scroll">Our Love Story</h2>
                         <div class="row align-items-center">
                             <div class="col-md-6 mb-4 mb-md-0">
-                                <div class="couple-photo-frame" style="border: 3px solid var(--gold); border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px rgba(19, 39, 79, 0.2);">
+                                <div class="couple-photo-frame animate-on-scroll" style="border: 3px solid var(--primary-gold); border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px var(--shadow);">
                                     <img src="https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                                          alt="Michelle & Victor" 
                                          style="width: 100%; height: 400px; object-fit: cover;">
                                 </div>
                             </div>
                             <div class="col-md-6 text-start">
-                                <h3 class="couple-names animate-on-scroll">Michelle & Victor</h3>
-                                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Our journey began in the picturesque town of Binmaley, where we both grew up. From childhood friends to lifelong partners, our love story has been written in the golden sunsets of Pangasinan.</p>
-                                <p class="animate-on-scroll" style="animation-delay: 0.4s;">We believe that true love is not about finding the perfect person, but about seeing an imperfect person perfectly. And in each other, we found that perfect vision.</p>
+                                <h3 class="couple-names animate-on-scroll" style="color: var(--primary-blue);">Michelle & Victor</h3>
+                                <p class="animate-on-scroll" style="animation-delay: 0.2s; color: var(--text-dark);">Our journey began in the picturesque town of Binmaley, where we both grew up. From childhood friends to lifelong partners, our love story has been written in the golden sunsets of Pangasinan.</p>
+                                <p class="animate-on-scroll" style="animation-delay: 0.4s; color: var(--text-dark);">We believe that true love is not about finding the perfect person, but about seeing an imperfect person perfectly. And in each other, we found that perfect vision.</p>
                                 <div class="mt-4 animate-on-scroll" style="animation-delay: 0.6s;">
-                                    <p style="font-style: italic; color: var(--rustic-brown);">
+                                    <p style="font-style: italic; color: var(--primary-gold); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">
                                         "Two souls, one heart, forever entwined in love's embrace."
                                     </p>
                                 </div>
@@ -897,11 +1036,11 @@
         </section>
 
         <!-- Wedding Details -->
-        <section id="details" class="section-padding details-section" style="background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 100%); color: var(--cream);">
+        <section id="details" class="section-padding details-section" style="background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
-                        <h2 class="section-title center text-white animate-on-scroll">Wedding Details</h2>
+                        <h2 class="section-title center animate-on-scroll" style="color: var(--light-cream);">Wedding Details</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -911,8 +1050,8 @@
                                 <i class="far fa-calendar-alt fa-2x"></i>
                             </div>
                             <h3 class="details-title text-center">Date & Time</h3>
-                            <p class="text-center"><i class="fas fa-clock me-2"></i>October 28, 2027</p>
-                            <p class="text-center">Thursday, 3:00 PM</p>
+                            <p class="text-center" style="color: var(--text-dark);"><i class="fas fa-clock me-2" style="color: var(--primary-gold);"></i>October 28, 2027</p>
+                            <p class="text-center" style="color: var(--text-light);">Thursday, 3:00 PM</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -921,9 +1060,9 @@
                                 <i class="fas fa-church fa-2x"></i>
                             </div>
                             <h3 class="details-title text-center">Ceremony</h3>
-                            <p class="text-center"><i class="fas fa-map-marker-alt me-2"></i>Our Lady of Purification Parish</p>
-                            <p class="text-center">Binmaley, Pangasinan</p>
-                            <p class="text-center">3:00 PM - 4:30 PM</p>
+                            <p class="text-center" style="color: var(--text-dark);"><i class="fas fa-map-marker-alt me-2" style="color: var(--primary-gold);"></i>Our Lady of Purification Parish</p>
+                            <p class="text-center" style="color: var(--text-light);">Binmaley, Pangasinan</p>
+                            <p class="text-center" style="color: var(--text-light);">3:00 PM - 4:30 PM</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -932,9 +1071,9 @@
                                 <i class="fas fa-glass-cheers fa-2x"></i>
                             </div>
                             <h3 class="details-title text-center">Reception</h3>
-                            <p class="text-center"><i class="fas fa-map-marker-alt me-2"></i>Villa Estrella Gardens</p>
-                            <p class="text-center">Binmaley, Pangasinan</p>
-                            <p class="text-center">5:00 PM onwards</p>
+                            <p class="text-center" style="color: var(--text-dark);"><i class="fas fa-map-marker-alt me-2" style="color: var(--primary-gold);"></i>Villa Estrella Gardens</p>
+                            <p class="text-center" style="color: var(--text-light);">Binmaley, Pangasinan</p>
+                            <p class="text-center" style="color: var(--text-light);">5:00 PM onwards</p>
                         </div>
                     </div>
                 </div>
@@ -954,37 +1093,37 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">1:30 PM</div>
                         <div class="timeline-event">Guest Arrival & Seating</div>
-                        <p>Please arrive at the church and be seated by 1:45 PM</p>
+                        <p style="color: var(--text-light);">Please arrive at the church and be seated by 1:45 PM</p>
                     </div>
                     <div class="timeline-item animate-on-scroll" style="animation-delay: 0.1s;">
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">3:00 PM</div>
                         <div class="timeline-event">Ceremony Begins</div>
-                        <p>Wedding mass at Our Lady of Purification Parish</p>
+                        <p style="color: var(--text-light);">Wedding mass at Our Lady of Purification Parish</p>
                     </div>
                     <div class="timeline-item animate-on-scroll" style="animation-delay: 0.2s;">
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">4:30 PM</div>
                         <div class="timeline-event">Photo Session</div>
-                        <p>Family and group photos at the church</p>
+                        <p style="color: var(--text-light);">Family and group photos at the church</p>
                     </div>
                     <div class="timeline-item animate-on-scroll" style="animation-delay: 0.3s;">
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">5:00 PM</div>
                         <div class="timeline-event">Cocktail Hour</div>
-                        <p>Drinks and hors d'oeuvres at Villa Estrella Gardens</p>
+                        <p style="color: var(--text-light);">Drinks and hors d'oeuvres at Villa Estrella Gardens</p>
                     </div>
                     <div class="timeline-item animate-on-scroll" style="animation-delay: 0.4s;">
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">6:00 PM</div>
                         <div class="timeline-event">Reception & Dinner</div>
-                        <p>Formal program and five-course dinner</p>
+                        <p style="color: var(--text-light);">Formal program and five-course dinner</p>
                     </div>
                     <div class="timeline-item animate-on-scroll" style="animation-delay: 0.5s;">
                         <div class="timeline-dot"></div>
                         <div class="timeline-time">9:00 PM</div>
                         <div class="timeline-event">Dancing & Celebration</div>
-                        <p>Music, dancing, and celebration until 11:00 PM</p>
+                        <p style="color: var(--text-light);">Music, dancing, and celebration until 11:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -1001,7 +1140,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="gallery-item animate-on-scroll">
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                                  alt="Engagement Photo" 
                                  class="gallery-img">
                             <div class="gallery-overlay">
@@ -1011,7 +1150,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="gallery-item animate-on-scroll" style="animation-delay: 0.1s;">
-                            <img src="https://images.unsplash.com/photo-1520854221256-17463ccb8b9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                            <img src="https://images.unsplash.com/photo-1520854221256-17463ccb8b9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                                  alt="Beach Day" 
                                  class="gallery-img">
                             <div class="gallery-overlay">
@@ -1021,7 +1160,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="gallery-item animate-on-scroll" style="animation-delay: 0.2s;">
-                            <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2054&q=80" 
+                            <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2054&q=80" 
                                  alt="Celebration" 
                                  class="gallery-img">
                             <div class="gallery-overlay">
@@ -1039,12 +1178,12 @@
                 <div class="row">
                     <div class="col-12 text-center mb-5">
                         <h2 class="section-title center animate-on-scroll">RSVP</h2>
-                        <p class="mb-4 animate-on-scroll" style="font-size: 1.2rem; color: var(--royal-blue-light); animation-delay: 0.1s;">
+                        <p class="mb-4 animate-on-scroll" style="font-size: 1.2rem; color: var(--primary-gold); animation-delay: 0.1s;">
                             Kindly respond by September 15, 2027
                         </p>
                     </div>
                 </div>
-                <div class="rsvp-form-container animate-on-scroll">
+                <div class="rsvp-form-container animate-on-scroll" style="animation-delay: 0.2s;">
                     <form id="rsvpForm">
                         <div class="row mb-4">
                             <div class="col-md-6 mb-3 mb-md-0">
@@ -1076,7 +1215,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="plus-one-container" id="plusOneContainer">
+                        <div class="plus-one-container" id="plusOneContainer" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease;">
                             <div class="row mb-4">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label for="plusOneFirstName" class="form-label">Plus One's First Name</label>
@@ -1107,14 +1246,14 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h3 class="footer-title">Michelle & Victor</h3>
                         <p class="footer-text">Thank you for being part of our special day. We look forward to celebrating with you!</p>
-                        <div class="social-links">
+                        <div class="social-links mt-4">
                             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                             <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
                             <a href="#" class="social-link"><i class="fas fa-phone"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">Contact Information</h4>
+                        <h4 class="mb-4" style="color: var(--accent-gold);">Contact Information</h4>
                         <ul class="list-unstyled footer-text">
                             <li class="mb-2"><i class="fas fa-user me-2"></i> Michelle & Victor</li>
                             <li class="mb-2"><i class="fas fa-envelope me-2"></i> rsvp@michelleandvictor2027.com</li>
@@ -1122,7 +1261,7 @@
                         </ul>
                     </div>
                     <div class="col-lg-4">
-                        <h4 class="mb-4">Wedding Details</h4>
+                        <h4 class="mb-4" style="color: var(--accent-gold);">Wedding Details</h4>
                         <ul class="list-unstyled footer-text">
                             <li class="mb-2"><i class="far fa-calendar-alt me-2"></i> October 28, 2027</li>
                             <li class="mb-2"><i class="fas fa-church me-2"></i> Our Lady of Purification Parish</li>
@@ -1130,9 +1269,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-5 pt-4">
                     <div class="col-12">
-                        <div class="copyright">
+                        <div class="copyright text-center" style="color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(232, 217, 160, 0.2); padding-top: 1.5rem;">
                             <p>Michelle & Victor Wedding | October 28, 2027 | Binmaley, Pangasinan</p>
                         </div>
                     </div>
@@ -1147,8 +1286,8 @@
             <div class="confirmation-icon">
                 <i class="fas fa-heart fa-3x"></i>
             </div>
-            <h3 class="mb-3">Thank You!</h3>
-            <p class="mb-4">Your RSVP has been received. We look forward to celebrating with you on our special day!</p>
+            <h3 class="mb-3" style="color: var(--primary-blue);">Thank You!</h3>
+            <p class="mb-4" style="color: var(--text-dark);">Your RSVP has been received. We look forward to celebrating with you on our special day!</p>
             <button class="btn btn-primary" id="closeModal">Close</button>
         </div>
     </div>
@@ -1171,7 +1310,8 @@
                 invitationContainer.classList.add('hidden');
                 
                 setTimeout(function() {
-                    websiteContent.classList.add('visible');
+                    websiteContent.style.opacity = '1';
+                    websiteContent.style.transform = 'translateY(0)';
                     history.replaceState(null, null, ' ');
                     
                     // Initialize animations after page loads
@@ -1212,15 +1352,9 @@
 
         function togglePlusOne() {
             if (plusOneCheckbox.checked) {
-                plusOneContainer.classList.add('visible');
-                setTimeout(function() {
-                    plusOneContainer.style.maxHeight = '200px';
-                }, 10);
+                plusOneContainer.style.maxHeight = '200px';
             } else {
                 plusOneContainer.style.maxHeight = '0';
-                setTimeout(function() {
-                    plusOneContainer.classList.remove('visible');
-                }, 500);
             }
         }
 
@@ -1234,20 +1368,22 @@
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = rsvpForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.innerHTML = '<span class="loading"></span>';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                confirmationModal.classList.add('visible');
-                rsvpForm.reset();
-                plusOneContainer.classList.remove('visible');
-                plusOneContainer.style.maxHeight = '0';
+            if (validateForm()) {
+                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+                submitBtn.disabled = true;
                 
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+                setTimeout(function() {
+                    confirmationModal.classList.add('visible');
+                    rsvpForm.reset();
+                    plusOneContainer.style.maxHeight = '0';
+                    plusOneCheckbox.checked = false;
+                    
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            }
         });
 
         closeModalBtn.addEventListener('click', function() {
@@ -1281,6 +1417,7 @@
             }
             
             lastScrollTop = scrollTop;
+            updateActiveNavLink();
         });
 
         // Smooth scrolling
@@ -1328,9 +1465,13 @@
                 musicPlayer.classList.remove('playing');
                 musicPlayer.innerHTML = '<i class="fas fa-music"></i>';
             } else {
-                weddingMusic.play();
-                musicPlayer.classList.add('playing');
-                musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                weddingMusic.play().then(() => {
+                    musicPlayer.classList.add('playing');
+                    musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                }).catch(error => {
+                    console.log("Audio play failed:", error);
+                    musicPlayer.innerHTML = '<i class="fas fa-music"></i>';
+                });
             }
             isPlaying = !isPlaying;
         });
@@ -1351,17 +1492,8 @@
             }
             
             window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Initial check
+            checkScroll();
         }
-
-        // Parallax Effect
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                heroSection.style.backgroundPosition = `center ${scrolled * 0.5}px`;
-            }
-        });
 
         // Form Validation
         function validateForm() {
@@ -1382,6 +1514,31 @@
             }
             
             return true;
+        }
+
+        // Active Nav Link
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
         }
 
         // Keyboard Accessibility
@@ -1421,40 +1578,19 @@
             }, 100);
         });
 
-        // Active Nav Link
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let currentSection = '';
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveNavLink);
-
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             if (window.location.hash) {
                 invitationContainer.classList.add('hidden');
-                websiteContent.classList.add('visible');
+                websiteContent.style.opacity = '1';
+                websiteContent.style.transform = 'translateY(0)';
                 initAnimations();
             }
+            
+            // Add loading animation
+            document.querySelectorAll('.details-card, .gallery-item, .timeline-item').forEach((el, index) => {
+                el.style.animationDelay = (index * 0.1) + 's';
+            });
         });
     </script>
 </body>
